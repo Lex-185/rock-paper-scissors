@@ -19,17 +19,17 @@ function getComputerChoice() {
 // Play 1 round
 function playRound(p, c) {
     if (p === c) {
-        return `It's a draw. Player choice: ${p}. Computer choice: ${c}`
+        return `It's a draw. ${p} ties with ${c}. Player score: ${scoreboard.player} Computer score: ${scoreboard.computer}`
     } else if ((p === 'rock' && c === 'scissors') 
     || (p === 'scissors' && c === 'paper') 
     || (p === 'paper' && c === 'rock')) {
         scoreboard.player++
-        return `You win! ${p} beats ${c}`
+        return `You win! ${p} beats ${c}. Player score: ${scoreboard.player} Computer score: ${scoreboard.computer}`
     } else if ((p === 'scissors' && c === 'rock') 
     || (p === 'paper' && c === 'scissors') 
     || (p === 'rock' && c === 'paper')) {
         scoreboard.computer++
-        return  `You lose! ${c} beats ${p}`
+        return  `You lose! ${c} beats ${p}. Player score: ${scoreboard.player} Computer score: ${scoreboard.computer}`
     }
 }
 
@@ -45,9 +45,9 @@ function game() {
     }
 
     if (scoreboard.player > scoreboard.computer) {
-        return 'You Won!'
+        return `You Won! Player score: ${scoreboard.player} Computer score: ${scoreboard.computer}`
     } else if (scoreboard.player < scoreboard.computer){
-        return 'The House Won'
+        return `The House Won. Player score: ${scoreboard.player} Computer score: ${scoreboard.computer}`
     } else {
         return 'Draw'
     }
