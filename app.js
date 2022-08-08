@@ -19,41 +19,49 @@ function getComputerChoice() {
 // Play 1 round
 function playRound(p, c) {
     if (p === c) {
-        return `It's a draw. ${p} ties with ${c}. Player score: ${scoreboard.player} Computer score: ${scoreboard.computer}`
+        return `It's a draw. Player score: ${scoreboard.player}. Computer score: ${scoreboard.computer}`
     } else if ((p === 'rock' && c === 'scissors') 
     || (p === 'scissors' && c === 'paper') 
     || (p === 'paper' && c === 'rock')) {
         scoreboard.player++
-        return `You win! ${p} beats ${c}. Player score: ${scoreboard.player} Computer score: ${scoreboard.computer}`
+        return `You win! Player score: ${scoreboard.player}. Computer score: ${scoreboard.computer}`
     } else if ((p === 'scissors' && c === 'rock') 
     || (p === 'paper' && c === 'scissors') 
     || (p === 'rock' && c === 'paper')) {
         scoreboard.computer++
-        return  `You lose! ${c} beats ${p}. Player score: ${scoreboard.player} Computer score: ${scoreboard.computer}`
+        return  `You lose. Player score: ${scoreboard.player}. Computer score: ${scoreboard.computer}`
     }
 }
 
 // Play the game
 function game() {
-    for (let i = 0; i < 5; i++) {
+    for (let i = 1; i <= 5; i++) {
         // Get player choice 
         const input = prompt('Please enter your choice', 'Rock, Paper, or Scissors').toLowerCase();
         
         const playerSelection = input;
         const computerSelection = getComputerChoice();
+        console.log('Round:', i);
+        console.log('Player choice:', playerSelection);
+        console.log('Computer choice:', computerSelection);
         console.log(playRound(playerSelection, computerSelection));
     }
+    console.log(updateScoreboard())
+}
 
+// Update scoreboard
+function updateScoreboard () {
     if (scoreboard.player > scoreboard.computer) {
         return `You Won! Player score: ${scoreboard.player} Computer score: ${scoreboard.computer}`
     } else if (scoreboard.player < scoreboard.computer){
         return `The House Won. Player score: ${scoreboard.player} Computer score: ${scoreboard.computer}`
     } else {
-        return 'Draw'
+        return `Draw. Player score: ${scoreboard.player} Computer score: ${scoreboard.computer}`
     }
 }
 
-console.log(game());
+game()
+
 
 
 
