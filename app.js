@@ -4,6 +4,12 @@
 3) game() will loop through playRound() to play a 5 round game
 */
 
+// Scoreboard
+const scoreboard = {
+    player: 0,
+    computer: 0
+}
+
 // Get computer choice
 function getComputerChoice() {
     const choices = ['rock', 'paper', 'scissors']
@@ -26,6 +32,28 @@ function playRound(p, c) {
         return  `You lose! ${c} beats ${p}`
     }
 }
+
+// Play the game
+function game() {
+    for (let i = 0; i < 5; i++) {
+        // Get player choice 
+        const input = prompt('Please enter your choice', 'Rock, Paper, or Scissors').toLowerCase();
+        
+        const playerSelection = input;
+        const computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection, computerSelection));
+    }
+
+    if (scoreboard.player > scoreboard.computer) {
+        return 'You Won!'
+    } else if (scoreboard.player < scoreboard.computer){
+        return 'The House Won'
+    } else {
+        return 'Draw'
+    }
+}
+
+console.log(game());
 
 
 
