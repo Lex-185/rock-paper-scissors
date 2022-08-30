@@ -7,8 +7,10 @@
 // Vars
 const choiceBtn = document.querySelectorAll('.choice-btn');
 const gameContainer = document.querySelector('.game-container');
-const resultsContainer = document.querySelector('.results')
-const outcomes = document.querySelectorAll('.results-result')
+const resultsContainer = document.querySelector('.results');
+const outcomes = document.querySelectorAll('.results-result');
+const resultWinner = document.querySelector('.results-winner');
+const resultText = document.querySelector('.results-text')
 const SELECTION = [
     {
         name: 'rock',
@@ -36,6 +38,7 @@ choiceBtn.forEach((button) => {
 function choice(select) {
     const computerSelection = getComputerChoice();
     displayResults([select, computerSelection])
+    displayWinner([select, computerSelection])
 }
 
 // Get computer choice
@@ -52,6 +55,27 @@ resultsContainer.innerHTML = `<div class="choice ${results[idx].name}">
 
     gameContainer.classList.toggle('hidden');
     resultsContainer.classList.toggle('hidden')
+}
+function displayWinner(results) {
+    setTimeout(() => {
+        const playerWins = roundWinner(results);
+        const computerWins = roundWinner(results.reverse());
+
+        if(playerWins) {
+            resultText.innerText = "You Win"
+        } else if (computerWins) {
+            resultText.innerText = "You Lose"
+        } else {
+            resultText.innerText = "Draw"
+        }
+    }, 500);
+
+    resultWinner.classList.toggle('hidden');
+    resultsContainer.classList.toggle('show-winner')
+}
+
+function roundWinner(results) {
+    return results[0].covers === results[1].name;
 }
 
 // Scoreboard
