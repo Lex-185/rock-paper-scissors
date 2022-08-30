@@ -37,6 +37,7 @@ body {
     font-family: 'Alegreya Sans', sans-serif;
     min-height: 100vh;
     background-color: #111111;
+    color: var(--light-text);
 }
 
 .bg {
@@ -297,4 +298,8 @@ body {
 
 .results-result:last-of-type {
     grid-area: computer-choice;
+}
+
+.hidden {
+    display: none;
 }
