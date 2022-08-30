@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@500;700&display=swap');
+
+/* Vars */
+:root {
+    --light-grey: #e6e6e6;
+    --grey: #a1a1a1;
+    --dark-grey: #595959;
+    --black: #080806;
+
+    --light-text: #fffceb;
+    --text: #6b6b5f;
+    --dark-text: #3a3b35;
+    --red-text: #d83d23;
+    --yellow-text: #fdca3c;
+
+    --green-bdr: #699693;
+    --bdr-outline: #5d625b;
+    --bg-i: #a2e5ff;
+    --bg-m: #2a81b0;
+    --bg-f: #084b75;
+    --radial-bg-i: #d5c7bc;
+    --radial-bg-f: #bca68f;
+}
+
+/* Global */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Alegreya Sans', sans-serif;
+    min-height: 100vh;
+    background: url(../images/bg.jpg);
+}
+
+/* Header */
+.header {
+    width: 500px;
+    height: 50px;
+    background-color: var(--light-grey);
+    text-align: center;
+    margin: 50px auto;
+    position: relative;
+}
+
+.header:before {
+    position: absolute;
+    content: '';
+    left: -25px;
+    top: 25px;
+    border-top: 25px solid transparent;
+    border-right: 25px solid var(--black);
+    border-left: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    z-index: -1;
+}
+
+.header:after {
+    position: absolute;
+    content: '';
+    right: -25px;
+    top: 25px;
+    border-top: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-left: 25px solid var(--black);
+    border-bottom: 25px solid transparent;
+    z-index: -1;
+}
+
+.left {
+    position: absolute;
+    border-top: 25px solid var(--grey);
+    border-right: 50px solid var(--grey);
+    border-left: 25px solid transparent;
+    border-bottom: 25px solid var(--grey);
+    top: 25px;
+    left: -50px;
+    z-index: -2;
+}
+
+.right {
+    position: absolute;
+    border-top: 25px solid var(--grey);
+    border-right: 25px solid transparent;
+    border-left: 50px solid var(--grey);
+    border-bottom: 25px solid var(--grey);
+    top: 25px;
+    right: -50px;
+    z-index: -2;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 50px;
+    height: 50px;
+
+    color: var(--light-text);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+/* Main content */
+.container {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 8px;
+}
