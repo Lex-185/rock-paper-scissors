@@ -30,15 +30,15 @@ const SELECTION = [
 choiceBtn.forEach((button) => {
     button.addEventListener('click', () => {
         const selectionId = button.id;
-        const select = SELECTION.find(select => select.name === selectionId)
-        choice(select)
+        const playerSelection = SELECTION.find(select => select.name === selectionId)
+        choice(playerSelection)
     })
 })
         
-function choice(select) {
+function choice(playerSelection) {
     const computerSelection = getComputerChoice();
-    displayResults([select, computerSelection])
-    displayWinner([select, computerSelection])
+    displayResults([playerSelection, computerSelection])
+    displayWinner([playerSelection, computerSelection])
 }
 
 // Get computer choice
@@ -47,10 +47,11 @@ function getComputerChoice() {
     return SELECTION[randomSelection]
 }
 
+// Display results
 function displayResults(results) {
     outcomes.forEach((resultsContainer, idx) => {
-resultsContainer.innerHTML = `<div class="choice ${results[idx].name}">
-    <img class="img-result" src="./images/${results[idx].name}-icon.jpeg" alt="${results[idx].name}" />
+    resultsContainer.innerHTML = `<div class="choice ${results[idx].name}">
+    <img class="img-result" src="./images/${results[idx].name}-icon.svg" alt="${results[idx].name}" />
     </div>`});
 }
 
@@ -68,25 +69,20 @@ computerScore.innerText = `${scoreboard.computer}`;
 
 // Display Winner
 function displayWinner(results) {
-    setTimeout(() => {
-        const playerWins = roundWinner(results);
-        const computerWins = roundWinner(results.reverse());
+const playerWins = roundWinner(results);
+const computerWins = roundWinner(results.reverse());
 
-        if(playerWins) {
-            resultText.innerText = "You Win";
-            computerScore.innerText = scoreboard.computer--;
-        } else if (computerWins) {
-            resultText.innerText = "You Lose"
-            playerScore.innerText = scoreboard.player--;
-        } else {
-            resultText.innerText = "Draw"
-        }
-    }, 50);
+if(playerWins) {
+    computerScore.innerText = scoreboard.computer--;
+    resultText.innerText = "You Win";
+} else if (computerWins) {
+    playerScore.innerText = scoreboard.player--;
+    resultText.innerText = "You Lose"
+} else {
+    resultText.innerText = "Draw"
+}}
 
-    // resultWinner.classList.toggle('hidden');
-    resultsContainer.classList.add('show-winner')
-}
-
+// Determine round winner
 function roundWinner(results) {
     return results[0].covers === results[1].name;
 }
