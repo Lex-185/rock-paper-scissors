@@ -217,10 +217,17 @@ body {
 
 .scoreboard {
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .score-title {
     margin-right: 5px;
+}
+
+.score-total, .score-title {
+    font-size: 20px;
+    font-weight: 500;
 }
 
 .scoreboard:hover, .info-title:hover {
@@ -262,25 +269,34 @@ body {
 /* Results */
 .results {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     place-items: center;
     grid-template-areas: 
-    'player-title computer-title'
-    'player-choice computer-choice';
+    'player-title . computer-title'
+    'player-choice . computer-choice';
 
-    max-width: 1000px;
+    max-width: 750px;
     margin: 0 auto;
+
+    color: var(--light-text);
+    border: 10px double #000;
+    border-radius: 4px;
+    outline: 7px solid var(--bdr-outline);
+    outline-offset: -9px;
+    margin-top: 50px;
+    padding: 10px;
 }
 
 .results-heading {
     font-size: 30px;
     letter-spacing: 0.1em;
-    padding: 4rem 0;
+    padding: 1rem 0;
 }
 
 .results-result {
-    min-width: 10rem;
-    min-height: 10rem;
+    min-width: 7rem;
+    min-height: 7rem;
+    margin-bottom: 20px;
     background: var(--dark-grey);
 }
 
@@ -313,9 +329,15 @@ body {
     place-items: center;
 }
 
+
 .results-text {
     font-size: 35px;
     padding-bottom: 10px;
+}
+
+.img-result {
+    width: 100px;
+    height: 100px;
 }
 
 .hidden {
@@ -332,7 +354,7 @@ body {
     border: 2px solid transparent;
     border-radius: 10px;
     color: var(--dark-text);
-    padding: 10px 50px;
+    padding: 10px 20px;
 }
 
 .new-game:hover {

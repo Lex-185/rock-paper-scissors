@@ -34,7 +34,7 @@ choiceBtn.forEach((button) => {
         choice(select)
     })
 })
-
+        
 function choice(select) {
     const computerSelection = getComputerChoice();
     displayResults([select, computerSelection])
@@ -50,38 +50,45 @@ function getComputerChoice() {
 function displayResults(results) {
     outcomes.forEach((resultsContainer, idx) => {
 resultsContainer.innerHTML = `<div class="choice ${results[idx].name}">
-    <img src="./images/${results[idx].name}-icon.jpeg" alt="${results[idx].name}" />
+    <img class="img-result" src="./images/${results[idx].name}-icon.jpeg" alt="${results[idx].name}" />
     </div>`});
-
-    gameContainer.classList.toggle('hidden');
-    resultsContainer.classList.toggle('hidden')
 }
+
+// Scoreboard
+const scoreboard = {
+    player: 5,
+    computer: 5
+}
+
+const playerScore = document.getElementById('player-score');
+playerScore.innerText = `${scoreboard.player}`;
+
+const computerScore = document.getElementById('computer-score');
+computerScore.innerText = `${scoreboard.computer}`;
+
+// Display Winner
 function displayWinner(results) {
     setTimeout(() => {
         const playerWins = roundWinner(results);
         const computerWins = roundWinner(results.reverse());
 
         if(playerWins) {
-            resultText.innerText = "You Win"
+            resultText.innerText = "You Win";
+            computerScore.innerText = scoreboard.computer--;
         } else if (computerWins) {
             resultText.innerText = "You Lose"
+            playerScore.innerText = scoreboard.player--;
         } else {
             resultText.innerText = "Draw"
         }
-    }, 500);
+    }, 50);
 
-    resultWinner.classList.toggle('hidden');
-    resultsContainer.classList.toggle('show-winner')
+    // resultWinner.classList.toggle('hidden');
+    resultsContainer.classList.add('show-winner')
 }
 
 function roundWinner(results) {
     return results[0].covers === results[1].name;
-}
-
-// Scoreboard
-const scoreboard = {
-    player: 0,
-    computer: 0
 }
 
 
@@ -93,40 +100,40 @@ const scoreboard = {
 //     } else if ((p === 'rock' && c === 'scissors') 
 //     || (p === 'scissors' && c === 'paper') 
 //     || (p === 'paper' && c === 'rock')) {
-//         scoreboard.player++
+//         scoreboard.computer--
 //         return `You win! Player score: ${scoreboard.player}. Computer score: ${scoreboard.computer}`
 //     } else if ((p === 'scissors' && c === 'rock') 
 //     || (p === 'paper' && c === 'scissors') 
 //     || (p === 'rock' && c === 'paper')) {
-//         scoreboard.computer++
+//         scoreboard.player--
 //         return  `You lose. Player score: ${scoreboard.player}. Computer score: ${scoreboard.computer}`
 //     }
 // }
 
 // Play the game
 // function game() {
-//     for (let i = 1; i <= 5; i++) {
-//         // Get player choice 
-//         const input = prompt('Please enter your choice', 'Rock, Paper, or Scissors').toLowerCase();
+    // for (let i = 1; i <= 5; i++) {
+    //     // Get player choice
         
-//         const playerSelection = input;
-//         const computerSelection = getComputerChoice();
-//         console.log('Round:', i);
-//         console.log('Player choice:', playerSelection);
-//         console.log('Computer choice:', computerSelection);
-//         console.log(playRound(playerSelection, computerSelection));
-//     }
-//     console.log(updateScoreboard())
+    //     const playerSelection = input;
+    //     const computerSelection = getComputerChoice();
+    //     console.log('Round:', i);
+    //     console.log('Player choice:', playerSelection);
+    //     // console.log('Computer choice:', computerSelection);
+    //     // console.log(playRound(playerSelection, computerSelection));
+    // }
+    // console.log(updateScoreboard())
 // }
+// game()
 
-// Update scoreboard
+// // Update scoreboard
 // function updateScoreboard () {
 //     if (scoreboard.player > scoreboard.computer) {
 //         return `You Won! Player score: ${scoreboard.player} Computer score: ${scoreboard.computer}`
 //     } else if (scoreboard.player < scoreboard.computer){
 //         return `The House Won. Player score: ${scoreboard.player} Computer score: ${scoreboard.computer}`
 //     } else {
-//         return `Draw. Player score: ${scoreboard.player} Computer score: ${scoreboard.computer}`
+//         return `Draw. Player score: ${scoreboard.player} Computer score: ${scoreboard.computer}` 
 //     }
 // }
 

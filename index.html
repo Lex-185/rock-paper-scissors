@@ -23,7 +23,7 @@
                     <div><img class="info-logo" src="./images/cuphead.gif" alt="cuphead"></div>
                     <div class="scoreboard">
                         <div class="score-title">HP:</div>
-                        <div class="score-total" id="player-score">5</div>
+                        <div class="score-total" id="player-score"></div>
                     </div>
                     <div class="info-title">Cuphead</div>
                 </div>
@@ -50,7 +50,7 @@
                     <div class="info-title">Cagney</div>
                     <div class="scoreboard">
                         <div class="score-title">HP:</div>
-                        <div class="score-total" id="computer-score">5</div>
+                        <div class="score-total" id="computer-score"></div>
                     </div>
                     <div><img class="info-logo" src="./images/cagney.gif" alt="cagney"></div>
                 </div>
@@ -73,19 +73,20 @@
                 </div>
             </div>
         </section>
+
+        <section class="results">
+            <h2 class="results-heading">You picked</h2>
+            <h2 class="results-heading">Cagney picked</h2>
+            <div class="results-result"></div>
+            <div class="results-winner">
+                <div class="results-text"></div>
+                <!-- <button class="new-game" id="play-again">Play Again</button> -->
+            </div>
+            <div class="results-result"></div>
+        </section> 
     </div>
 
-    <section class="results hidden">
-        <h2 class="results-heading">You picked</h2>
-        <h2 class="results-heading">Cagney picked</h2>
-        <div class="results-result"></div>
-        <div class="results-winner hidden">
-            <div class="results-text"></div>
-            <button class="new-game">Play Again</button>
-        </div>
-        <div class="results-result"></div>
-    </section>
-   
+    
     <script src="./js/main.js"></script>
 </body>
 </html>
