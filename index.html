@@ -4,14 +4,192 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/modal.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/logo.png">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <h2>Rock Paper Scissors</h2>
-    <p>The game is played entirely from the console.</p> 
-    <p>To view the console on Windows/Linux press <u>Ctrl + Shift + J</u> or <u>Command + Option + J</u> on macOS.</p>
-    <button onclick="game()">Play Game</button>
-    <script src="app.js"></script>
+    <div class="bg"></div>
+
+    <div class="start-game">
+        <button id="start-btn">Start</button>
+    </div>
+   
+    <div class="content hidden">
+    <div class="container">
+        <header class="header">
+            <div class="left"></div>
+            <div class="right"></div>
+            <h1 class="logo">Floral Fury</h1>
+        </header>
+
+         <!-- Rules Modal-->
+    <div class="rules-container">
+        <button class="rules-btn">Rules</button>
+        <div class="modal">
+            <div class="modal-container">
+                <header class="modal-header">
+                    <h2 class="modal-heading">Rules</h2>
+                    <button class="close-btn">X</button>
+                </header>
+                <div class="modal-showcase">
+                    <div class="showcase rock">
+                        <img class="img" src="./images/rock-icon.svg" alt="rock">
+                        <p><u>Rock</u></p>
+                        <h2>Beats</h2>
+                        <img class="img" src="./images/scissors-icon1.svg" alt="scissors">
+                        <p><u>Scissors</u></p>
+                    </div>
+                    <div class="showcase paper">
+                        <img class="img" src="./images/paper-icon.svg" alt="paper">
+                        <p><u>Paper</u></p>
+                        <h2>Beats</h2>
+                        <img class="img" src="./images/rock-icon1.svg" alt="rock">
+                        <p><u>Rock</u></p>
+                    </div>
+                    <div class="showcase scissors">
+                        <img class="img" src="./images/scissors-icon.svg" alt="scissors">
+                        <p><u>Scissors</u></p>
+                        <h2>Beats</h2>
+                        <img class="img" src="./images/paper-icon1.svg" alt="paper">
+                        <p><u>Paper</u></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <section class="game-container">
+            <div class="left-content">
+                <div class="info">
+                    <div><img class="info-logo" src="./images/cuphead.svg" alt="cuphead"></div>
+                    <div class="scoreboard">
+                        <div class="score-title">HP:</div>
+                        <div class="score-total" id="player-score"></div>
+                    </div>
+                    <div class="info-title">Cuphead</div>
+                </div>
+                <div class="selections">
+                    <button class="choice-btn" id="rock">
+                        <div class="choice rock">
+                            <img class="img" src="./images/rock-icon.svg" alt="rock">
+                        </div>
+                    </button>
+                    <button class="choice-btn" id="paper">
+                        <div class="choice paper">
+                            <img class="img" src="./images/paper-icon.svg" alt="paper">
+                        </div>
+                    </button>
+                    <button class="choice-btn" id="scissors">
+                        <div class="choice scissors">
+                            <img class="img" src="./images/scissors-icon.svg" alt="scissors">
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <div class="right-content">
+                <div class="info">
+                    <div class="info-title">Cagney</div>
+                    <div class="scoreboard">
+                        <div class="score-title">HP:</div>
+                        <div class="score-total" id="computer-score"></div>
+                    </div>
+                    <div><img class="info-logo" src="./images/cagney.svg" alt="cagney"></div>
+                </div>
+                <div class="selections">
+                    <button class="choice-btn" id="rock-cag">
+                        <div class="choice rock">
+                            <img class="img" src="./images/rock-icon1.svg" alt="rock">
+                        </div>
+                    </button>
+                    <button class="choice-btn" id="paper-cag">
+                        <div class="choice paper">
+                            <img class="img" src="./images/paper-icon1.svg" alt="paper">
+                        </div>
+                    </button>
+                    <button class="choice-btn" id="scissors-cag">
+                        <div class="choice scissors">
+                            <img class="img" src="./images/scissors-icon1.svg" alt="scissors">
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <div class="text-placeholder"></div>
+        <div class="outcome-placeholder hidden"></div>
+
+        <!-- Lose screen -->
+        <section class="lose-screen" style="display: none">
+            <div class="lose-container">
+                <div class="top-container">
+                    <img class="img-lose" src="./images/cagney-wins.svg" alt="">
+                    <h2>"Extreme pollination and total domination!"</h2>
+                </div>
+                <div class="mid-container">
+                    <h2 class="final-result"></h2>
+                </div>
+                <div class="retry-container">
+                    <button id="retry"><a href="index.html">RETRY</a></button>
+                </div>
+                <div class="bottom-container">
+                    <h3>&copy 1930</h3>
+                    <h3>MDHR, INC.. Death</h3>
+                    <h3>Carnation</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Win screen -->
+        <section class="win-screen" style="display: none;">
+            <div class="win-header">
+                <div class="win-heading">THE RESULTS!</div>
+                <div class="win-credit">
+                    <h3>Studiomdhr</h3>
+                    <h3>Entertainment inc.</h3>
+                </div>
+            </div>
+            <div class="middle-container">
+            
+            <div class="win-container">
+                <div class="win-img">
+                    <img class="img-win" src="./images/cuphead-win.svg" alt="cuphead">
+                </div>
+                <div class="win-info">
+                    <div class="time-container">
+                        <h3>Time:</h3>
+                        <h3 class="time"></h3> 
+                    </div>
+                    <div class="health-bonus">
+                        <h3>Health:</h3> 
+                        <h3 class="hp"></h3>
+                    </div>
+                    <div class="play">
+                        <button id="play-again"><a href="index.html">Play Again?</a></button>
+                    </div>
+                </div>
+                <div class="grade">
+                    <h2 class="grade-title">Grade:</h2>
+                    <h2 class="grade-value">A+</h2>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <section class="results show-winner hidden">
+            <h2 class="results-heading">Your Choice</h2>
+            <h2 class="results-heading">Cagney's Choice</h2>
+            <div id="player" class="results-result player"></div>
+            <div class="results-winner">
+                <div class="results-text"></div>
+                <!-- <button class="new-game" id="play-again">Play Again</button> -->
+            </div>
+            <div id="computer" class="results-result computer"></div>
+        </section> 
+    </div>
+    </div>
+    
+    <script src="./js/main.js"></script>
 </body>
 </html>
