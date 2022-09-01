@@ -5,6 +5,9 @@
 */
 
 // Vars
+const startBtn = document.getElementById('start-btn');
+const content = document.querySelector('.content')
+
 const header = document.querySelector('.header')
 const choiceBtn = document.querySelectorAll('.choice-btn');
 const gameContainer = document.querySelector('.game-container');
@@ -38,6 +41,12 @@ const SELECTION = [
         covers: 'paper'
     }
 ];
+
+// Start game
+startBtn.addEventListener('click', () => {
+    content.classList.remove('hidden')
+    startBtn.classList.add('hidden')
+})
 
 // Player selection
 choiceBtn.forEach((button) => {
@@ -106,6 +115,11 @@ if(playerWins) {
 } else {
     resultText.innerText = "Draw"
 };
+
+// Lose screen
+const result = document.createElement('h3');
+result.innerText = `Player HP: ${scoreboard.player} | Boss HP: ${scoreboard.computer}`
+finalResult.append(result)
 game()
 }
 
@@ -149,7 +163,19 @@ function game() {
     }
 }
 
-// Lose screen
-const result = document.createElement('h3');
-result.innerText = `Player HP: ${scoreboard.player} | Boss HP: ${scoreboard.computer}`
-finalResult.append(result)
+// Win screen
+let startTime, endTime;
+// Start btn and after winning
+
+function start() {
+    startTime = new Date();
+};
+
+function end() {
+    endTime = new Date();
+    let timeDifference = endTime - startTime;
+    timeDifference /= 1000;
+
+    let seconds = Math.round(timeDifference)
+    console.log(seconds);
+}
