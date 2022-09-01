@@ -64,6 +64,8 @@ body {
     justify-content: center;
     align-items: center;
     
+    margin: 0 auto;
+    overflow-y: hidden;
 }
 
 #start-btn {
@@ -556,6 +558,20 @@ body {
 .middle-container {
     display: flex;
     align-items: center;
+}
+
+.time-container, .health-bonus {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 15px;
+}
+
+.health-bonus {
+    display: flex;
+}
+
+.time {
+    text-transform: lowercase;
 }
 
 .img-win {

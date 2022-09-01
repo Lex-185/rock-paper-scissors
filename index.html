@@ -120,7 +120,7 @@
         <div class="text-placeholder"></div>
         <div class="outcome-placeholder hidden"></div>
 
-        <section class="lose-screen" style="display: none;">
+        <section class="lose-screen" style="display: none">
             <div class="lose-container">
                 <div class="top-container">
                     <img class="img-lose" src="./images/cagney-wins.svg" alt="">
@@ -140,7 +140,7 @@
             </div>
         </section>
 
-        <section class="win-screen">
+        <section class="win-screen" style="display: none;">
             <div class="win-header">
                 <div class="win-heading">THE RESULT</div>
                 <div class="win-credit">
@@ -155,8 +155,14 @@
                     <img class="img-win" src="./images/cuphead-win.svg" alt="cuphead">
                 </div>
                 <div class="win-info">
-                    <h3 id="time">Time: </h3>
-                    <h3 id="health-bonus">Health: </h3>
+                    <div class="time-container">
+                        <h3>Time:</h3>
+                        <h3 class="time"></h3> 
+                    </div>
+                    <div class="health-bonus">
+                        <h3>Health:</h3> 
+                        <h3 class="hp"></h3>
+                    </div>
                 </div>
                 <div class="grade">
                     <h2 class="grade-title">Grade:</h2>

@@ -26,6 +26,7 @@ const closeBtn = document.querySelector('.close-btn');
 
 const finalResult = document.querySelector('.final-result')
 const loseScreen = document.querySelector('.lose-screen')
+const winScreen = document.querySelector('.win-screen')
 
 const SELECTION = [
     {
@@ -46,6 +47,7 @@ const SELECTION = [
 startBtn.addEventListener('click', () => {
     content.classList.remove('hidden')
     startBtn.classList.add('hidden')
+    start()
 })
 
 // Player selection
@@ -117,9 +119,7 @@ if(playerWins) {
 };
 
 // Lose screen
-const result = document.createElement('h3');
-result.innerText = `Player HP: ${scoreboard.player} | Boss HP: ${scoreboard.computer}`
-finalResult.append(result)
+finalResult.innerText = `Player HP: ${scoreboard.player} | Boss HP: ${scoreboard.computer}`
 game()
 }
 
@@ -145,27 +145,27 @@ textPlaceholder.append(h1)
 
 // Game()
 function game() {
-    if (scoreboard.computer === 0) {
-        // resultsContainer.style.display = 'none';
-        // outcomePlaceholder.classList.remove = 'hidden';
-        // outcomePlaceholder.style.display = 'flex';
-
-        // const h1 = document.createElement('h1');
-        // h1.innerText = 'Knockout!'
-        // h1.style.fontSize = '40px'
-        // outcomePlaceholder.append(h1)
-    } else if (scoreboard.player === 4) {
-        header.style.display = 'none'
-        gameContainer.style.display = 'none'
+    if (scoreboard.computer === 4) {
+        header.style.display = 'none';
+        gameContainer.style.display = 'none';
         resultsContainer.style.display = 'none';
-        rulesBtn.style.display = 'none'
+        rulesBtn.style.display = 'none';
+        winScreen.style.display = 'flex';
+
+        const hp = document.querySelector('.hp')
+        hp.innerText = `${scoreboard.player}/5`
+        end()
+    } else if (scoreboard.player === 0) {
+        header.style.display = 'none';
+        gameContainer.style.display = 'none';
+        resultsContainer.style.display = 'none';
+        rulesBtn.style.display = 'none';
         loseScreen.style.display = 'flex'
     }
 }
 
-// Win screen
+// Record Time
 let startTime, endTime;
-// Start btn and after winning
 
 function start() {
     startTime = new Date();
@@ -177,5 +177,6 @@ function end() {
     timeDifference /= 1000;
 
     let seconds = Math.round(timeDifference)
-    console.log(seconds);
+    const time = document.querySelector('.time');
+    time.innerText = `${seconds}s`;
 }
