@@ -5,11 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/modal.css">
     <link rel="icon" type="image/png" sizes="32x32" href="./images/logo.png">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
     <div class="bg"></div>
+
     <div class="container">
         <header class="header">
             <div class="left"></div>
@@ -17,10 +19,41 @@
             <h1 class="logo">Floral Fury</h1>
         </header>
 
-        <!-- Rules Modal-->
-        <div class="rules-container">
-            <button class="rules-btn">Rules</button>
+         <!-- Rules Modal-->
+    <div class="rules-container">
+        <button class="rules-btn">Rules</button>
+        <div class="modal">
+            <div class="modal-container">
+                <header class="modal-header">
+                    <h2 class="modal-heading">Rules</h2>
+                    <button class="close-btn">X</button>
+                </header>
+                <div class="modal-showcase">
+                    <div class="showcase rock">
+                        <img class="img" src="./images/rock-icon.svg" alt="rock">
+                        <p><u>Rock</u></p>
+                        <h2>Beats</h2>
+                        <img class="img" src="./images/scissors-icon1.svg" alt="scissors">
+                        <p><u>Scissors</u></p>
+                    </div>
+                    <div class="showcase paper">
+                        <img class="img" src="./images/paper-icon.svg" alt="paper">
+                        <p><u>Paper</u></p>
+                        <h2>Beats</h2>
+                        <img class="img" src="./images/rock-icon1.svg" alt="rock">
+                        <p><u>Rock</u></p>
+                    </div>
+                    <div class="showcase scissors">
+                        <img class="img" src="./images/scissors-icon.svg" alt="scissors">
+                        <p><u>Scissors</u></p>
+                        <h2>Beats</h2>
+                        <img class="img" src="./images/paper-icon1.svg" alt="paper">
+                        <p><u>Paper</u></p>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
 
         <section class="game-container">
             <div class="left-content">

@@ -11,7 +11,10 @@ const resultsContainer = document.querySelector('.results');
 const outcomes = document.querySelectorAll('.results-result');
 const resultWinner = document.querySelector('.results-winner');
 const resultText = document.querySelector('.results-text');
-const textPlaceholder = document.querySelector('.text-placeholder')
+const textPlaceholder = document.querySelector('.text-placeholder');
+const rulesModal = document.querySelector('.modal')
+const rulesBtn = document.querySelector('.rules-btn');
+const closeBtn = document.querySelector('.close-btn');
 const SELECTION = [
     {
         name: 'rock',
@@ -91,7 +94,14 @@ function roundWinner(results) {
     return results[0].covers === results[1].name;
 }
 
+// Rules modal
+rulesBtn.addEventListener('click', () => {
+    rulesModal.style.display = 'block'
+})
 
+closeBtn.addEventListener('click', () => {
+    rulesModal.style.display = 'none'
+})
 
 // Play 1 round
 // function playRound(p, c) {
