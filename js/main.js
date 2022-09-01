@@ -28,6 +28,8 @@ const finalResult = document.querySelector('.final-result')
 const loseScreen = document.querySelector('.lose-screen')
 const winScreen = document.querySelector('.win-screen')
 
+const computerResult = document.getElementById('computer')
+
 const SELECTION = [
     {
         name: 'rock',
@@ -72,10 +74,20 @@ function getComputerChoice() {
 }
 
 // Display results
+// outcomes.forEach(consoleItem);
+
+// function consoleItem(item, index) {
+//     console.log(item);
+// }
+
 function displayResults(results) {
     outcomes.forEach((resultsContainer, idx) => {
     resultsContainer.innerHTML = `<div class="choice ${results[idx].name}">
     <img class="img-result" src="./images/${results[idx].name}-icon.svg" alt="${results[idx].name}" />
+    </div>`;
+
+    computerResult.innerHTML = `<div class="choice ${results[idx].name}">
+    <img class="img-result" src="./images/${results[idx].name}-icon1.svg" alt="${results[idx].name}" />
     </div>`});
 
     textPlaceholder.classList.add('hidden');
