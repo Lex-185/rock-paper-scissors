@@ -145,7 +145,7 @@ textPlaceholder.append(h1)
 
 // Game()
 function game() {
-    if (scoreboard.computer === 4) {
+    if (scoreboard.computer === 0) {
         header.style.display = 'none';
         gameContainer.style.display = 'none';
         resultsContainer.style.display = 'none';
@@ -155,6 +155,7 @@ function game() {
         const hp = document.querySelector('.hp')
         hp.innerText = `${scoreboard.player}/5`
         end()
+        updateGrade()
     } else if (scoreboard.player === 0) {
         header.style.display = 'none';
         gameContainer.style.display = 'none';
@@ -179,4 +180,19 @@ function end() {
     let seconds = Math.round(timeDifference)
     const time = document.querySelector('.time');
     time.innerText = `${seconds}s`;
+}
+
+// Grade 
+function updateGrade() {
+    const grade = document.querySelector('.grade-value');
+
+    if (scoreboard.player === 5) {
+        grade.innerText = 'S'
+    } else if (scoreboard.player === 4) {
+        grade.innerText = 'A+'
+    } else if (scoreboard.player === 3) {
+        grade.innerText = 'A'
+    } else {
+        grade.innerText = 'B'
+    }
 }

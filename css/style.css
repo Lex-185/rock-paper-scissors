@@ -13,15 +13,13 @@
     --red-i: #ca5743;
     --red-f: #c53015;
     --yellow-text: #fdca3c;
-    --yellow-f: #c2910b;
+    --yellow-f: #a8841f;
 
     --green-bdr: #699693;
     --bdr-outline: #e0d8d6;
     --bg-i: #a2e5ff;
     --bg-m: #2a81b0;
     --bg-f: #084b75;
-    --radial-bg-i: #d5c7bc;
-    --radial-bg-f: #bca68f;
 
     --inner-shadow: #00000026;
     --outer-shadow: #0000004d;
@@ -58,20 +56,20 @@ body {
 
 /* Start Btn */
 .start-game {
+    position: absolute;
     width: 100%;
     height: 100%;
-    display: flex;
-    justify-content: center;
+    display: grid;
     align-items: center;
-    
     margin: 0 auto;
-    overflow-y: hidden;
+    overflow: hidden;
 }
 
 #start-btn {
+    text-transform: uppercase;
     background: none;
     border: none;
-    font-size: 30px;
+    font-size: 33px;
     font-weight: 700;
     color: var(--dark-grey);
     z-index: 1;
@@ -461,7 +459,7 @@ body {
     text-decoration: none;
 }
 
-#retry:link, #retry:visited, a {
+#retry:link, #retry:visited, #play-again, a {
     text-decoration: none;
     color: var(--black);
 }
@@ -550,7 +548,7 @@ body {
 
 .grade-value {
     font-size: 30px;
-    padding: 5px;
+    padding: 5px 15px;
     border: 2px solid var(--yellow-text);
     border-radius: 50%;
 }
@@ -566,10 +564,6 @@ body {
     margin-right: 15px;
 }
 
-.health-bonus {
-    display: flex;
-}
-
 .time {
     text-transform: lowercase;
 }
@@ -579,6 +573,27 @@ body {
     width: 100px;
     height: 100px;
     background-color: var(--light-grey);
+}
+
+.play {
+    border-top: 2px solid var(--black);
+    display: flex;
+    justify-content: center;
+}
+
+#play-again {
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: inherit;
+    background: none;
+    border: none;
+    padding-top: 5px;
+    padding-bottom: 4px;
+}
+
+#play-again:hover{
+    transform: scale(1.1);
 }
 
 @keyframes bg-animation {
