@@ -274,7 +274,7 @@ body {
     box-shadow: 0 0.3rem var(--outer-shadow), 0 0.3rem var(--yellow-f)
 }
 
-.text-placeholder {
+.text-placeholder, .outcome-placeholder {
     display: flex;
     justify-content: center;
     align-items: end;
@@ -381,21 +381,47 @@ body {
     display: none;
 }
 
-.new-game {
-    font-family: inherit;
-    font-size: 20px;
-    letter-spacing: 0.1em;
-    cursor: pointer;
-    background: #fff;
-    outline: none;
-    border: 2px solid transparent;
+/* Lose screen */
+.lose-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
     border-radius: 10px;
-    color: var(--dark-text);
-    padding: 10px 20px;
+    width: 500px;
+    height: 600px;
+    background-color: var(--light-grey);
+    color: #000;
+
+    outline: 7px solid var(--black);
+    outline-offset: -10px;
+    margin: 20px;
+    padding: 20px;
 }
 
-.new-game:hover {
-    border: 2px solid var(--black);
+.img-lose {
+    height: 200px;
+    width: 200px;
+}
+
+.top-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.top-container h2 {
+    margin-top: 10px;
+}
+
+
+
+.bottom-container {
+    display: flex;
+    justify-content: space-between;
+
+    width: 450px;
 }
 
 @keyframes bg-animation {

@@ -5,6 +5,7 @@
 */
 
 // Vars
+const header = document.querySelector('.header')
 const choiceBtn = document.querySelectorAll('.choice-btn');
 const gameContainer = document.querySelector('.game-container');
 const resultsContainer = document.querySelector('.results');
@@ -12,6 +13,7 @@ const outcomes = document.querySelectorAll('.results-result');
 const resultWinner = document.querySelector('.results-winner');
 const resultText = document.querySelector('.results-text');
 const textPlaceholder = document.querySelector('.text-placeholder');
+const outcomePlaceholder = document.querySelector('.outcome-placeholder');
 const rulesModal = document.querySelector('.modal')
 const rulesBtn = document.querySelector('.rules-btn');
 const closeBtn = document.querySelector('.close-btn');
@@ -85,8 +87,8 @@ function subtractComputerScore(hp) {
 
 // Display Winner
 function displayWinner(results) {
-const playerWins = roundWinner(results);
-const computerWins = roundWinner(results.reverse());
+const playerWins = playRound(results);
+const computerWins = playRound(results.reverse());
 
 if(playerWins) {
     subtractComputerScore(1)
@@ -96,10 +98,12 @@ if(playerWins) {
     resultText.innerText = "You Lose"
 } else {
     resultText.innerText = "Draw"
-}}
+};
+game()
+}
 
-// Determine round winner
-function roundWinner(results) {
+// playRound
+function playRound(results) {
     return results[0].covers === results[1].name;
 }
 
@@ -112,53 +116,29 @@ closeBtn.addEventListener('click', () => {
     rulesModal.style.display = 'none'
 })
 
-// Play 1 round
-// function playRound(p, c) {
-//     if (p === c) {
-//         return `It's a draw. Player score: ${scoreboard.player}. Computer score: ${scoreboard.computer}`
-//     } else if ((p === 'rock' && c === 'scissors') 
-//     || (p === 'scissors' && c === 'paper') 
-//     || (p === 'paper' && c === 'rock')) {
-//         scoreboard.computer--
-//         return `You win! Player score: ${scoreboard.player}. Computer score: ${scoreboard.computer}`
-//     } else if ((p === 'scissors' && c === 'rock') 
-//     || (p === 'paper' && c === 'scissors') 
-//     || (p === 'rock' && c === 'paper')) {
-//         scoreboard.player--
-//         return  `You lose. Player score: ${scoreboard.player}. Computer score: ${scoreboard.computer}`
-//     }
-// }
+// Text placeholder
+const h1 = document.createElement('h1')
+let txt = 'Get Ready For A Swell Battle!'
+h1.innerText = `${txt}`
+textPlaceholder.append(h1)
 
-// Play the game
-// function game() {
-    // for (let i = 1; i <= 5; i++) {
-    //     // Get player choice
-        
-    //     const playerSelection = input;
-    //     const computerSelection = getComputerChoice();
-    //     console.log('Round:', i);
-    //     console.log('Player choice:', playerSelection);
-    //     // console.log('Computer choice:', computerSelection);
-    //     // console.log(playRound(playerSelection, computerSelection));
-    // }
-    // console.log(updateScoreboard())
-// }
-// game()
+// Game()
+function game() {
+    if (scoreboard.computer === 0) {
+        resultsContainer.style.display = 'none';
+        outcomePlaceholder.classList.remove = 'hidden';
+        outcomePlaceholder.style.display = 'flex';
 
-// // Update scoreboard
-// function updateScoreboard () {
-//     if (scoreboard.player > scoreboard.computer) {
-//         return `You Won! Player score: ${scoreboard.player} Computer score: ${scoreboard.computer}`
-//     } else if (scoreboard.player < scoreboard.computer){
-//         return `The House Won. Player score: ${scoreboard.player} Computer score: ${scoreboard.computer}`
-//     } else {
-//         return `Draw. Player score: ${scoreboard.player} Computer score: ${scoreboard.computer}` 
-//     }
-// }
-
-
-
-
-
+        const h1 = document.createElement('h1');
+        h1.innerText = 'Knockout!'
+        h1.style.fontSize = '40px'
+        outcomePlaceholder.append(h1)
+    } else if (scoreboard.player === 4) {
+        header.style.display = 'none'
+        gameContainer.style.display = 'none'
+        resultsContainer.style.display = 'none';
+        rulesBtn.style.display = 'none'
+    }
+}
 
 
