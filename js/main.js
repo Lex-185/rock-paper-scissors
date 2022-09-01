@@ -8,15 +8,21 @@
 const header = document.querySelector('.header')
 const choiceBtn = document.querySelectorAll('.choice-btn');
 const gameContainer = document.querySelector('.game-container');
+
 const resultsContainer = document.querySelector('.results');
 const outcomes = document.querySelectorAll('.results-result');
 const resultWinner = document.querySelector('.results-winner');
 const resultText = document.querySelector('.results-text');
+
 const textPlaceholder = document.querySelector('.text-placeholder');
 const outcomePlaceholder = document.querySelector('.outcome-placeholder');
+
 const rulesModal = document.querySelector('.modal')
 const rulesBtn = document.querySelector('.rules-btn');
 const closeBtn = document.querySelector('.close-btn');
+
+const finalResult = document.querySelector('.final-result')
+
 const SELECTION = [
     {
         name: 'rock',
@@ -125,14 +131,14 @@ textPlaceholder.append(h1)
 // Game()
 function game() {
     if (scoreboard.computer === 0) {
-        resultsContainer.style.display = 'none';
-        outcomePlaceholder.classList.remove = 'hidden';
-        outcomePlaceholder.style.display = 'flex';
+        // resultsContainer.style.display = 'none';
+        // outcomePlaceholder.classList.remove = 'hidden';
+        // outcomePlaceholder.style.display = 'flex';
 
-        const h1 = document.createElement('h1');
-        h1.innerText = 'Knockout!'
-        h1.style.fontSize = '40px'
-        outcomePlaceholder.append(h1)
+        // const h1 = document.createElement('h1');
+        // h1.innerText = 'Knockout!'
+        // h1.style.fontSize = '40px'
+        // outcomePlaceholder.append(h1)
     } else if (scoreboard.player === 4) {
         header.style.display = 'none'
         gameContainer.style.display = 'none'
@@ -141,4 +147,7 @@ function game() {
     }
 }
 
-
+// Lose screen
+const result = document.createElement('h3');
+result.innerText = `Player HP: ${scoreboard.player} | Boss HP: ${scoreboard.computer}`
+finalResult.append(result)
