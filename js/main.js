@@ -10,7 +10,8 @@ const gameContainer = document.querySelector('.game-container');
 const resultsContainer = document.querySelector('.results');
 const outcomes = document.querySelectorAll('.results-result');
 const resultWinner = document.querySelector('.results-winner');
-const resultText = document.querySelector('.results-text')
+const resultText = document.querySelector('.results-text');
+const textPlaceholder = document.querySelector('.text-placeholder')
 const SELECTION = [
     {
         name: 'rock',
@@ -53,6 +54,9 @@ function displayResults(results) {
     resultsContainer.innerHTML = `<div class="choice ${results[idx].name}">
     <img class="img-result" src="./images/${results[idx].name}-icon.svg" alt="${results[idx].name}" />
     </div>`});
+
+    textPlaceholder.classList.add('hidden');
+    resultsContainer.classList.remove('hidden')
 }
 
 // Scoreboard
