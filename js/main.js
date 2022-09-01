@@ -74,16 +74,25 @@ playerScore.innerText = `${scoreboard.player}`;
 const computerScore = document.getElementById('computer-score');
 computerScore.innerText = `${scoreboard.computer}`;
 
+function subtractPlayerScore(hp) {
+    scoreboard.player -= hp;
+    playerScore.innerText = `${scoreboard.player}`
+}
+function subtractComputerScore(hp) {
+    scoreboard.computer -= hp;
+    computerScore.innerText = `${scoreboard.computer}`
+}
+
 // Display Winner
 function displayWinner(results) {
 const playerWins = roundWinner(results);
 const computerWins = roundWinner(results.reverse());
 
 if(playerWins) {
-    computerScore.innerText = scoreboard.computer--;
+    subtractComputerScore(1)
     resultText.innerText = "You Win";
 } else if (computerWins) {
-    playerScore.innerText = scoreboard.player--;
+    subtractPlayerScore(1)
     resultText.innerText = "You Lose"
 } else {
     resultText.innerText = "Draw"
