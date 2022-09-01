@@ -22,6 +22,7 @@ const rulesBtn = document.querySelector('.rules-btn');
 const closeBtn = document.querySelector('.close-btn');
 
 const finalResult = document.querySelector('.final-result')
+const loseScreen = document.querySelector('.lose-screen')
 
 const SELECTION = [
     {
@@ -144,6 +145,7 @@ function game() {
         gameContainer.style.display = 'none'
         resultsContainer.style.display = 'none';
         rulesBtn.style.display = 'none'
+        loseScreen.style.display = 'flex'
     }
 }
 
