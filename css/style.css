@@ -450,6 +450,7 @@ body {
 }
 
 #retry {
+    margin-top: -20px;
     color: var(--black);
     font-family: inherit;
     font-size: 35px;
