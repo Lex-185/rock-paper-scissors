@@ -41,7 +41,6 @@ const SELECTION = [
 
 // Start game
 const startHeader = document.querySelector('.start-header')
-startHeader.innerText = 'Rock Paper Scissors'
 
 startBtn.addEventListener('click', () => {
     content.classList.remove('hidden')
