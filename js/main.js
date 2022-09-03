@@ -1,9 +1,3 @@
-/*
-1) getComputerChoice() will randomly select either rock paper or scissors 
-2) playRound() will take in the player choice and computer choice to determine a winner
-3) game() will loop through playRound() to play a 5 round game
-*/
-
 // Vars
 const startBtn = document.getElementById('start-btn');
 const content = document.querySelector('.content')
@@ -72,13 +66,6 @@ function getComputerChoice() {
     const randomSelection = Math.floor(Math.random() * SELECTION.length)
     return SELECTION[randomSelection]
 }
-
-// Display results
-// outcomes.forEach(consoleItem);
-
-// function consoleItem(item, index) {
-//     console.log(item);
-// }
 
 function displayResults(results) {
     outcomes.forEach((resultsContainer, idx) => {
@@ -208,3 +195,8 @@ function updateGrade() {
         grade.innerText = 'B'
     }
 }
+
+// Animation on load
+setTimeout(() => {
+    document.body.classList.remove('preload')
+}, 500);

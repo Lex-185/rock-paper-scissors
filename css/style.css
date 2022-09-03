@@ -8,7 +8,7 @@
     --black: #080806;
 
     --light-text: #fffceb;
-    --text: #6b6b5f;
+   
     --dark-text: #3a3b35;
     --red-i: #ca5743;
     --red-f: #c53015;
@@ -19,8 +19,7 @@
     --bdr-outline: #e0d8d6;
     --bg-i: #a2e5ff;
     --bg-m: #2a81b0;
-    --bg-f: #084b75;
-
+    
     --inner-shadow: #00000026;
     --outer-shadow: #0000004d;
 }
@@ -595,6 +594,11 @@ body {
 
 #play-again:hover{
     transform: scale(1.1);
+}
+
+/* preload */
+.preload * {
+    transition: none;
 }
 
 @keyframes bg-animation {
