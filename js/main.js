@@ -148,23 +148,25 @@ textPlaceholder.append(h1)
 // Game()
 function game() {
     if (scoreboard.computer === 0) {
-        header.style.display = 'none';
-        gameContainer.style.display = 'none';
-        resultsContainer.style.display = 'none';
-        rulesBtn.style.display = 'none';
+        const hp = document.querySelector('.hp');
+        hp.innerText = `${scoreboard.player}/5`;
+
         winScreen.style.display = 'flex';
 
-        const hp = document.querySelector('.hp')
-        hp.innerText = `${scoreboard.player}/5`
         end()
         updateGrade()
+        updateScreen()
     } else if (scoreboard.player === 0) {
-        header.style.display = 'none';
-        gameContainer.style.display = 'none';
-        resultsContainer.style.display = 'none';
-        rulesBtn.style.display = 'none';
         loseScreen.style.display = 'flex'
+        updateScreen()
     }
+}
+
+function updateScreen() {
+    header.style.display = 'none';
+    gameContainer.style.display = 'none';
+    resultsContainer.style.display = 'none';
+    rulesBtn.style.display = 'none';
 }
 
 // Record Time
