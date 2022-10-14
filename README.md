@@ -6,4 +6,9 @@ A Cuphead themed rock, paper, scissors game.
 
 Created with HTML, CSS and JS.
 
+### Images
+![Game Screen](./images/game-screen.png)
+![Cuphead Wins result screen](./images/player-wins.png)
+![Cagney Wins results screen](./images/player-loses.png)
+
 All rights reserved by StudioMDHR. 
